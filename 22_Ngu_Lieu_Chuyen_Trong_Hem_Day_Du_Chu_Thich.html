@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sài Gòn,<br>chuyện trong hẻm — Ngữ liệu Dịch thuật</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1208;
+    --paper: #F7F2E8;
+    --aged: #EDE5D0;
+    --crease: #D4C9B0;
+    --rust: #7B3F00;
+    --rust-light: #B5651D;
+    --gold: #9B7B2E;
+    --gold-light: #C9A84C;
+    --muted: #5C4F3A;
+    --accent: #2C4A6E;
+    --page-bg: #EAE0CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--page-bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,165,130,0.15) 27px, rgba(180,165,130,0.15) 28px);
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+  }
+
+  .page-wrapper { max-width: 780px; margin: 0 auto; }
+
+  .header-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--crease);
+  }
+  .source-badge {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--muted); text-transform: uppercase;
+  }
+  .source-badge span { color: var(--rust); font-weight: 700; }
+  .task-badge {
+    background: var(--rust); color: var(--paper);
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 2px;
+  }
+
+  .story-card {
+    background: var(--paper); border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06), 4px 4px 0 var(--crease);
+    overflow: hidden; position: relative;
+  }
+  .story-card::before {
+    content: ''; position: absolute; left: 72px; top: 0; bottom: 0;
+    width: 1px; background: rgba(181,101,29,0.25); pointer-events: none;
+  }
+
+  .title-block {
+    padding: 48px 56px 36px 88px;
+    border-bottom: 1px solid var(--crease); position: relative;
+  }
+  .title-number {
+    position: absolute; left: 0; top: 48px; width: 72px;
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    color: var(--rust-light); letter-spacing: 1px; text-transform: uppercase;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    height: 80px; display: flex; align-items: center; justify-content: center;
+  }
+  .story-title {
+    font-family: 'Playfair Display', serif; font-size: 40px;
+    font-weight: 900; color: var(--ink); line-height: 1.15;
+    letter-spacing: -0.5px; margin-bottom: 8px;
+  }
+  .story-subtitle {
+    font-size: 16px; font-style: italic; color: var(--muted);
+  }
+  .author-line {
+    margin-top: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .author-line::before {
+    content: ''; width: 32px; height: 1px; background: var(--gold);
+  }
+  .author-name {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .story-body { padding: 36px 56px 44px 88px; }
+
+  .prose {
+    font-size: 18px; line-height: 1.9; color: var(--ink);
+    font-weight: 300; margin-bottom: 22px; text-align: justify;
+  }
+
+  .prose.opening::first-letter {
+    font-family: 'Playfair Display', serif; font-size: 72px;
+    font-weight: 900; float: left; line-height: 0.75;
+    margin-right: 8px; margin-top: 8px; color: var(--rust);
+  }
+
+  .scene-break {
+    text-align: center; color: var(--gold); font-size: 18px;
+    margin: 28px 0; letter-spacing: 12px;
+  }
+
+  .closing-prose {
+    font-size: 18px; line-height: 1.9; color: var(--ink);
+    font-weight: 300; margin-top: 24px; font-style: italic;
+    text-align: center; padding: 24px 32px;
+    border-top: 1px solid var(--crease);
+    border-bottom: 1px solid var(--crease);
+  }
+
+  .slang {
+    border-bottom: 1px dashed var(--rust-light);
+    color: var(--rust); cursor: help;
+  }
+
+  .page-footer {
+    margin-top: 32px; padding-top: 16px;
+    border-top: 1px solid var(--crease);
+    display: flex; justify-content: space-between;
+  }
+  .footer-text {
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    color: var(--muted); letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="header-meta">
+    <div class="source-badge">Ngữ liệu dịch thuật  ·  <span>Trích: Sài Gòn Bao Nhớ</span>  ·  Đàm Hà Phú</div>
+    <div class="task-badge">Phiếu Thực hành & Đánh giá</div>
+  </div>
+
+  <div class="story-card">
+
+    <div class="title-block">
+      <div class="title-number">Ngữ liệu</div>
+      <div class="story-title">Sài Gòn,<br>chuyện trong hẻm</div>
+      <div class="story-subtitle">Tường thuật — Tình làng nghĩa xóm Sài Gòn</div>
+      <div class="author-line">
+        <div class="author-name">Đàm Hà Phú</div>
+      </div>
+    </div>
+
+    <div class="story-body">
+      <p class="prose opening">Nhà anh ở cuối hẻm, anh chạy xe ôm, xe của anh thường đậu ở đầu hẻm. Hẻm nhỏ nên mấy chục nhà đều biết anh, có việc gì đi đâu người ta nhất loạt bật ra câu: <span class="slang" title="kêu, nhờ thằng Tám chở giúp — cách nói thân mật trong xóm">"<span class="slang" title="kêu, nhờ thằng Tám chở giúp — cách nói thân mật trong xóm">Biểu thằng Tám chở</span>,"</span> khuya sớm nắng mưa gì hễ người trong hẻm kêu là anh chạy xe vô tận nhà chở, tiền bạc đôi khi <span class="slang" title="ước chừng, không tính toán chi li"><span class="slang" title="ước chừng, không tính toán chi li">ang áng</span></span>, dư thiếu gì anh cũng vui. Vợ anh chẳng may mất sớm, để lại thằng con cho anh, nhờ trời thằng nhỏ khỏe mạnh và dễ thương. Năm đầu khi vợ mất thì mẹ anh giúp nuôi thằng nhỏ, rồi bà già cũng theo ông đi mất, thằng nhỏ được cả con hẻm nuôi, nó ăn cơm nhà này ngủ nhà khác là chuyện thường.</p>
+
+      <p class="prose">Anh thường đưa con đi học, tiện chở luôn <span class="slang" title="cách gọi thân mật con gái út trong nhà"><span class="slang" title="cách gọi thân mật con gái út trong nhà">con Út</span></span> nhà chị Tư thợ may, chiều cũng đón hai đứa về, bữa nào anh kẹt khách về trễ, con Út kêu xe khác tự dẫn em về rồi má nó trả tiền. Nhiều người thấy anh hiền lành, chăm chỉ nên mai mối cho anh đặng đi bước nữa, anh lắc đầu cười, anh sợ thằng con chịu cảnh mẹ ghẻ con chồng, mà thằng nhỏ có thiếu thốn gì, cả con hẻm như cái nhà lớn của nó, ai đi đâu về cũng có quà cho nó, đến con kiến còn không cắn được nó nữa là...</p>
+
+      <p class="prose">Bữa nọ có ông kêu anh chở đi Long An, anh biết chỗ đó vì nó ngang nhà vợ anh, anh xin ghé lại mua ít bánh trái vô thăm nhà vợ, dù thỉnh thoảng anh vẫn chở con về đó chơi hoài. Ông khách nọ nhân đường xa, ngồi hóng chuyện của anh, thấy cảm kích lắm, lúc quay về xin ghé nhà anh ăn bữa cơm. Nhà <span class="slang" title="thành ngữ: cha đơn thân nuôi con một mình"><span class="slang" title="thành ngữ: cha đơn thân nuôi con một mình">gà trống nuôi con</span></span> đâu có gì ăn, anh chở ông khách về rồi nhờ trong hẻm ai có gì bưng qua thứ đó, nồi cá kho của nhà Hai Mến, tô canh dư bên Bảy Gà, cơm trắng lấy bên Tư thợ may, rượu nhà còn...</p>
+
+      <p class="prose">Mấy tháng sau ông khách đi xe ôm hôm đó chết, trong di chúc của ổng có để lại cho anh mười cây vàng, lúc anh con trai ông khách nọ điện thoại cho anh, anh cứ tưởng thằng nào nói chơi chọc anh. Bữa hai vợ chồng anh con trai ông khách đi xe hơi tới trao cho anh mười cây vàng, cả hẻm ra coi, vui quá trời. Anh kể câu chuyện này thực thà, anh nói mười cây vàng xài hết có một cây đãi bà con lối xóm với mua cho thằng nhỏ cái xe đạp <span class="slang" title="chạy lòng vòng, chạy chơi loanh quanh"><span class="slang" title="chạy lòng vòng, chạy chơi loanh quanh">chạy xà quần</span></span> trong hẻm, còn chín cây anh bán gửi ngân hàng lấy lãi, mà hổng <span class="slang" title="gần đây, dạo này (từ địa phương)"><span class="slang" title="gần đây, dạo này (từ địa phương)">rày</span></span> lãi xuống quá, hổng biết sao.</p>
+
+      <div class="scene-break">· · ·</div>
+
+      <p class="prose">Em nhỏ đến bán bánh mì đầu hẻm lâu rồi mà có ai biết tên gì, <span class="slang" title="gọi/gán biệt danh theo nghề bán hàng"><span class="slang" title="gọi/gán biệt danh theo nghề bán hàng">kêu con nhỏ bánh mì</span></span>, rồi kêu con Gái riết thành tên, nó cũng tự nhận mình tên Gái luôn. Nó bán bánh mì cũng ngon, bánh mì xíu mại làm thanh mảnh, vừa miệng. Xe bánh mì của nó nhỏ xíu, có bánh xe đẩy, trời chưa tỏ mặt người đã thấy nó đẩy tới, tới xế trưa thì đẩy về, nghe đâu nó ở trọ với mấy đứa em ở trong khu sinh viên, nghe đâu nó dân miền Tây, nghe đâu buổi chiều tối nó đi học thêm, nghe đâu nó bán bánh mì nuôi hai ba đứa em ăn học đại học... những tin đồn dễ thương, giúp xe bánh mì của em đắt khách, chủ yếu cư dân trong hẻm, lúc nào cũng thấy em tươi cười.</p>
+
+      <p class="prose">Trong hẻm có nhà nọ khá giàu, nhà đất rộng cả ngàn thước vuông, xe mẹc láng cóng, hai vợ chồng chủ nhà kinh doanh ngành thép. Hai vợ chồng chủ nhà tuy giàu nhưng đối đãi với chòm xóm rất được, lúc nào cũng giúp đỡ người khác, ai cũng thương. Hai vợ chồng đã già mà có một thằng con trai một nên nó thuộc loại <span class="slang" title="con nhà giàu, thường mang nghĩa ăn chơi"><span class="slang" title="con nhà giàu, thường mang nghĩa ăn chơi">công tử</span></span>, ăn chơi khét tiếng, <span class="slang" title="thành ngữ Hán Việt: con cái phá tán gia sản"><span class="slang" title="thành ngữ Hán Việt: con cái phá tán gia sản">phá gia chi tử</span></span>. Hai vợ chồng già rầu lắm. Bà vợ mỗi bữa đi bộ với mấy bà ra công viên tập thể dục đều nói: Con nào mà sửa được thằng Thành tôi để hết gia tài cho nó, vợ chồng tôi chết mới nhắm mắt.</p>
+
+      <p class="prose">Rồi bỗng nhiên một hôm thằng <span class="slang" title="con nhà giàu, thường mang nghĩa ăn chơi">công tử</span> nhà nọ tự nhiên đổi tánh dần, bắt đầu bỏ ăn chơi, chịu học chịu làm, bắt đầu theo cha mẹ coi sóc cái vựa thép khổng lồ, mua mua bán bán, người ta còn thấy nó theo mẹ ra công viên tập thể dục mỗi sáng. Khỏi nói hai vợ chồng già chủ vựa thép vui thế nào, bà con trong hẻm cũng vui lây. Nhưng cái đám cưới của thằng Thành với con Gái là vui nhứt, cả hẻm đều được mời, <span class="slang" title="tổ chức tiệc lớn, nhiều bàn tiệc"><span class="slang" title="tổ chức tiệc lớn, nhiều bàn tiệc">đãi mấy chục bàn</span></span> từ trong sân tràn ra ngoài hẻm, ca hát bia bọt đến tận khuya. Nhiều người nói bữa nay vui, vui mà cũng uổng, uống là từ mơi không có bánh mì con Gái mà ăn, cô dâu vẫn cười tươi, nói cô bác nào ăn con làm đem qua cho. Thiệt con nhỏ dễ thương gì đâu.</p>
+
+      <div class="scene-break">· · ·</div>
+
+      <p class="prose">Chiều hôm nọ tôi có việc qua quận tư, đi gặp một người ở trong một con hẻm nhỏ xíu, bề ngang chừng một thước và chạy ngoằn nghèo, ngang chợ Xóm Chiếu. Tôi đậu xe ngoài đường và lững thững đi vào trong hẻm, tôi dừng lại hỏi thăm một toán <span class="slang" title="thợ xây dựng"><span class="slang" title="thợ xây dựng">thợ hồ</span></span> đang làm móng một căn nhà chừng hai chục thước vuông, có mấy vị hàng xóm rảnh rỗi sang góp chuyện, nhóm thợ đang làm sắt giữa hẻm, đất cát gần như choán hết lối đi mà không thấy ai than phiền gì.</p>
+
+      <p class="prose">Tôi rút điếu thuốc ra chưa kịp mồi thì đã có một anh bật quẹt lửa cháy đã sẵn, tôi gật đầu cảm ơn rồi hóng chuyện tiếp, chuyện những vất vả của nghề <span class="slang" title="thợ xây dựng">thợ hồ</span>, anh kia ra điều hiểu chuyện, nói, ờ, làm gì mà không khổ, chủ yếu mình thấy vui được rồi. Anh ở trần, sau lưng xăm con đại bàng rất lớn. Anh nói với toán thợ, chiều nay qua nhà tao ăn cơm, bữa nay cúng cơm ông già tao, tụi bây xin <span class="slang" title="cho phép nghỉ làm sớm hơn giờ quy định"><span class="slang" title="cho phép nghỉ làm sớm hơn giờ quy định">cai nghỉ sớm</span></span> qua uống chén rượu hén, đám thợ cười hớn, <span class="slang" title="đáp đồng loạt rất to, vui vẻ"><span class="slang" title="đáp đồng loạt rất to, vui vẻ">dạ rân</span></span>.</p>
+
+      <p class="prose">Tôi đã từng lang thang qua những con hẻm ở quận tư, quận tám, ở khu Hòa Hưng, Bùi Thị Xuân... Tôi đã từng sống trong những khu nhà cất trên bờ kênh Nhiêu Lộc mà người ta gọi là <span class="slang" title="tên gọi dân gian khu nhà ổ chuột ven kênh Nhiêu Lộc"><span class="slang" title="tên gọi dân gian khu nhà ổ chuột ven kênh Nhiêu Lộc">Xóm Nước Đen</span></span>... Ở những khu đó có nhiều người Sài Gòn hơn những khu dân cư hiện đại hay những chung cư năm sao, dù họ không hẳn tất cả đều nói giọng Sài Gòn.</p>
+
+      <p class="closing-prose">Hôm qua tôi đi vào một con hẻm nhỏ xíu và ngoằn nghèo ngang chợ Xóm Chiếu,<br>nơi được mệnh danh là <span class="slang" title="khu vực nổi tiếng có nhiều băng nhóm, tệ nạn"><span class="slang" title="khu vực nổi tiếng có nhiều băng nhóm, tệ nạn">thủ phủ giang hồ đao kiếm</span></span> của Sài thành,<br>nhưng không hiểu sao tôi luôn có cảm giác thân thuộc, ấm cúng khi đi vào trong con hẻm đó,<br>có lẽ bởi vì cái mùi người, cái mùi Sài Gòn trong những con hẻm đó luôn làm tôi hạnh phúc. Thiệt.</p>
+
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">Trích: Đàm Hà Phú — Sài Gòn Bao Nhớ  ·  Ngữ liệu phi chính thức — Cộng đồng hẻm</div>
+    <div class="footer-text">House (1997) TQA  ·  COPES (Winne & Hadwin, 1998)</div>
+  </div>
+
+</div>
+</body>
+</html>
